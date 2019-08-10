@@ -6,7 +6,7 @@
 
 ```jsx
 import { h } from 'omis'
-import css from './_index.css'
+import './index.css'
 
 const Counter = (props, store) => {
   return (
@@ -25,11 +25,11 @@ Counter.store = _ => {
     count: 1,
     add() {
       this.count++
-      this.update()
+      _.update()
     },
     sub() {
       this.count--
-      this.update()
+      _.update()
     },
     clickHandle() {
       if ("undefined" != typeof wx && wx.getSystemInfoSync) {
@@ -43,10 +43,16 @@ Counter.store = _ => {
   }
 }
 
-Counter.css = css
-
 export default Counter
 ```
+
+注意这里 css 在小程序和web里都是全局作用，小程序没法做到 scoped style，在 web 里是可以做到 scoped，只需要这样：
+
+```js
+Counter.css = require('./_index.css')
+```
+
+使用下划线前缀并且赋值便可。
 
 ## 快速开始
 
@@ -75,6 +81,26 @@ npm run build    //发布 web
 │  ├─ components    //存放所有组件
 │  ├─ log.js        //入口文件，会 build 成  log.html
 │  └─ index.js      //入口文件，会 build 成  index.html
+```
+
+
+## 注意事项和已知问题
+
+* 不要使用 bindtap，使用 onClick
+* 图片请使用 cdn 地址或者 base64
+* 如果要兼容 web，请用 HTML 和 CSS 标签，比如用 div，不用 view，不用 rpx 单位等
+* DOM 上声明 data-xx 属性，在小程序 evt.target.dataset.xx 获取不到，请使用 function 传参方式（官方正在修复）
+
+```jsx
+<div class="todo-list">
+  {todo.map(item => (
+    <div>
+      <div class="toggle" onClick={function () { this.toggle(item.id) }}></div>
+      <text >{item.text} </text>
+      <div class="delete" onClick={function () { this.deleteItem(item.id) }}></div>
+    </div>
+  ))}
+</div>
 ```
 
 ## License
