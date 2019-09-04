@@ -24,10 +24,10 @@ module.exports = {
 	},
 	// app 配置，同 https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/app.html#window
 	app: {
-    navigationBarBackgroundColor: '#24292e',
+    navigationBarBackgroundColor: '#efcc19',
     navigationBarTextStyle: 'white',
     navigationBarTitleText: ' ',
-    backgroundColor: '#eeeeee',
+    backgroundColor: '#efcc19',
     backgroundTextStyle: 'light'
 	},
 	// 全局配置

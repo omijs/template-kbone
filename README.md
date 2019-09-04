@@ -1,58 +1,59 @@
 # omi-kbone
 
-使用 [omis](https://github.com/Tencent/omi/tree/master/packages/omis) 多端开发(小程序和Web)，基于 [kbone](https://github.com/wechat-miniprogram/kbone) 的 element 和 render。
+<p align="center"><img src="https://github.com/Tencent/omi/raw/master/assets/snake.jpg" alt="omi" width="200"/></p>
+
+使用 omi + [kbone](https://github.com/wechat-miniprogram/kbone) 多端开发(小程序和Web)的贪吃蛇游戏。
 
 ## 一套语法多端运行
 
+主界面:
+
 ```jsx
-import { h } from 'omis'
-import './index.css'
+import { define, h, rpx } from 'omio'
+import '../game'
+import './_index.css'
 
-const Counter = (props, store) => {
-  return (
-    <div>
-      <button onClick={store.sub}>-</button>
-      <span>{store.count}</span>
-      <button onClick={store.add}>+</button>
+define('my-index', ['paused'], ({ store }) => (
+  <div class="container">
+    <h1>OMI SNAKE</h1>
 
-      <div onClick={store.clickHandle}>跳转</div>
+    <my-game></my-game>
+
+    <div class="ctrl">
+      <div class="btn cm-btn cm-btn-dir up" onClick={store.turnUp}><i></i><em></em><span>Up</span></div>
+      <div class="btn cm-btn cm-btn-dir down" onClick={store.turnDown}><i></i><em></em><span>Down</span></div>
+      <div class="btn cm-btn cm-btn-dir left" onClick={store.turnLeft}><i></i><em></em><span >Left</span></div>
+      <div class="btn cm-btn cm-btn-dir right" onClick={store.turnRight}><i></i><em></em><span >Right</span></div>
+      <div class="btn cm-btn space" onClick={store.toggleSpeed}><i></i><span >加速/减速</span></div>
+      <div class="btn reset small" onClick={store.reset}><i ></i><span >Reset</span></div>
+      <div class="btn pp small" onClick={store.pauseOrPlay}><i></i><span >{store.data.paused ? 'Play' : 'Pause'}</span></div>
     </div>
-  )
-}
+  </div>
 
-Counter.store = _ => {
-  return {
-    count: 1,
-    add() {
-      this.count++
-      _.update()
-    },
-    sub() {
-      this.count--
-      _.update()
-    },
-    clickHandle() {
-      if ("undefined" != typeof wx && wx.getSystemInfoSync) {
-        wx.navigateTo({
-          url: '../log/index?id=1'
-        })
-      } else {
-        location.href = 'log.html'
-      }
-    }
-  }
-}
-
-export default Counter
+), "undefined" != typeof wx && wx.getSystemInfoSync || rpx(require('./_index.css')))
 ```
 
-注意这里 css 在小程序和web里都是全局作用，小程序没法做到 scoped style，在 web 里是可以做到 scoped，只需要这样：
+游戏界面:
 
-```js
-Counter.css = require('./_index.css')
+```jsx
+import { define, h, rpx } from 'omio'
+import './_index.css'
+
+define('my-game', ['map'], _ => (
+  <div class="game">
+    {_.store.data.map.map(row => {
+      return <p>
+        {row.map(col => {
+          if (col) {
+            return <b class='s'></b>
+          }
+          return <b></b>
+        })}
+      </p>
+    })}
+  </div>
+), "undefined" != typeof wx && wx.getSystemInfoSync || rpx(require('./_index.css')))
 ```
-
-使用下划线前缀并且赋值便可。
 
 ## 快速开始
 
@@ -78,17 +79,38 @@ npm run build    //发布 web
 ├─ scripts
 ├─ src
 │  ├─ assets
-│  ├─ components    //存放所有组件
+│  ├─ components    //存放所有页面的组件
+│  ├─ models        //存放所有模型
+│  ├─ stores        //存放页面的 store
 │  ├─ log.js        //入口文件，会 build 成  log.html
 │  └─ index.js      //入口文件，会 build 成  index.html
 ```
 
+## 谁在使用 kbone？
 
-## 注意事项和已知问题
+<table>
+	<tbody>
+		<tr>
+			<td><a target="_blank" href="https://developers.weixin.qq.com/community/develop/mixflow"><img width="200px"
+						src="https://raw.githubusercontent.com/wechat-miniprogram/kbone/develop/docs/images/code1.jpg"></a></td>
+			<td><a target="_blank" href="http://omijs.org"><img width="200px"
+						src="https://github.com/Tencent/omi/raw/master/assets/omi-cloud.jpg"></a></td>
+			<td width="92px"><a target="_blank" href="https://github.com/Tencent/omi/issues/new">告诉我们</a></td>
+		
+</table>
+
+## 注意事项
 
 * 不要使用 bindtap，使用 onClick
 * 图片请使用 cdn 地址或者 base64
-* 如果要兼容 web，请用 HTML 和 CSS 标签，比如用 div，不用 view，不用 rpx 单位等
+* 如果要兼容 web，请用 HTML 和 CSS 标签，比如用 div，不用 view 等
+
+## Todo
+
+* 区别头部和食物颜色
+* 障碍物
+* 关卡设计
+* 开始(SNAKE)和结束动画(GAME OVER)
 
 ## License
 

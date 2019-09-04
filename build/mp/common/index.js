@@ -1,4 +1,4 @@
-module.exports = function(window, document) {var navigator = window.navigator;var HTMLElement = window.HTMLElement;var localStorage = window.localStorage;var sessionStorage = window.sessionStorage;var location = window.location;window["createApp"] =
+module.exports = function(window, document) {var navigator = window.navigator;var HTMLElement = window.HTMLElement;var localStorage = window.localStorage;var sessionStorage = window.sessionStorage;var location = window.location;window.HTMLIFrameElement = function(){};window["createApp"] =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// install a JSONP callback for chunk loading
 /******/ 	function webpackJsonpCallback(data) {
@@ -149,326 +149,412 @@ module.exports = function(window, document) {var navigator = window.navigator;va
 /******/
 /******/
 /******/ 	// add entry module to deferred list
-/******/ 	deferredModules.push([5,0]);
+/******/ 	deferredModules.push([9,0,3]);
 /******/ 	// run deferred modules when ready
 /******/ 	return checkDeferredModules();
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */,
-/* 1 */
-/***/ (function(module, exports) {
-
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
-module.exports = _defineProperty;
-
-/***/ }),
-/* 2 */
+/* 1 */,
+/* 2 */,
+/* 3 */,
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
 
 /***/ }),
-/* 3 */
+/* 5 */,
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
 
 /***/ }),
-/* 4 */,
-/* 5 */
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+/* 8 */,
+/* 9 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 
-// EXTERNAL MODULE: ./node_modules/omis/dist/omis.esm.js
-var omis_esm = __webpack_require__(0);
+// EXTERNAL MODULE: ./node_modules/omio/dist/omi.esm.js
+var omi_esm = __webpack_require__(0);
+
+// EXTERNAL MODULE: ./src/components/game/_index.css
+var _index = __webpack_require__(4);
+
+// CONCATENATED MODULE: ./src/components/game/index.js
+
+
+Object(omi_esm["a" /* define */])('my-game', ['map'], function (_) {
+  return Object(omi_esm["b" /* h */])("div", {
+    "class": "game"
+  }, _.store.data.map.map(function (row) {
+    return Object(omi_esm["b" /* h */])("p", null, row.map(function (col) {
+      if (col) {
+        return Object(omi_esm["b" /* h */])("b", {
+          "class": 's'
+        });
+      }
+
+      return Object(omi_esm["b" /* h */])("b", null);
+    }));
+  }));
+}, "undefined" != typeof wx && wx.getSystemInfoSync || Object(omi_esm["d" /* rpx */])(__webpack_require__(4)));
+// EXTERNAL MODULE: ./src/components/index/_index.css
+var index_index = __webpack_require__(6);
+
+// CONCATENATED MODULE: ./src/components/index/index.js
+
+
+
+Object(omi_esm["a" /* define */])('my-index', ['paused'], function (_ref) {
+  var store = _ref.store;
+  return Object(omi_esm["b" /* h */])("div", {
+    "class": "container"
+  }, Object(omi_esm["b" /* h */])("h1", null, "OMI SNAKE"), Object(omi_esm["b" /* h */])("my-game", null), Object(omi_esm["b" /* h */])("div", {
+    "class": "ctrl"
+  }, Object(omi_esm["b" /* h */])("div", {
+    "class": "btn cm-btn cm-btn-dir up",
+    onClick: store.turnUp
+  }, Object(omi_esm["b" /* h */])("i", null), Object(omi_esm["b" /* h */])("em", null), Object(omi_esm["b" /* h */])("span", null, "Up")), Object(omi_esm["b" /* h */])("div", {
+    "class": "btn cm-btn cm-btn-dir down",
+    onClick: store.turnDown
+  }, Object(omi_esm["b" /* h */])("i", null), Object(omi_esm["b" /* h */])("em", null), Object(omi_esm["b" /* h */])("span", null, "Down")), Object(omi_esm["b" /* h */])("div", {
+    "class": "btn cm-btn cm-btn-dir left",
+    onClick: store.turnLeft
+  }, Object(omi_esm["b" /* h */])("i", null), Object(omi_esm["b" /* h */])("em", null), Object(omi_esm["b" /* h */])("span", null, "Left")), Object(omi_esm["b" /* h */])("div", {
+    "class": "btn cm-btn cm-btn-dir right",
+    onClick: store.turnRight
+  }, Object(omi_esm["b" /* h */])("i", null), Object(omi_esm["b" /* h */])("em", null), Object(omi_esm["b" /* h */])("span", null, "Right")), Object(omi_esm["b" /* h */])("div", {
+    "class": "btn cm-btn space",
+    onClick: store.toggleSpeed
+  }, Object(omi_esm["b" /* h */])("i", null), Object(omi_esm["b" /* h */])("span", null, "\u52A0\u901F/\u51CF\u901F")), Object(omi_esm["b" /* h */])("div", {
+    "class": "btn reset small",
+    onClick: store.reset
+  }, Object(omi_esm["b" /* h */])("i", null), Object(omi_esm["b" /* h */])("span", null, "Reset")), Object(omi_esm["b" /* h */])("div", {
+    "class": "btn pp small",
+    onClick: store.pauseOrPlay
+  }, Object(omi_esm["b" /* h */])("i", null), Object(omi_esm["b" /* h */])("span", null, store.data.paused ? 'Play' : 'Pause'))));
+}, "undefined" != typeof wx && wx.getSystemInfoSync || Object(omi_esm["d" /* rpx */])(__webpack_require__(6)));
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/classCallCheck.js
+var classCallCheck = __webpack_require__(1);
+var classCallCheck_default = /*#__PURE__*/__webpack_require__.n(classCallCheck);
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/createClass.js
+var createClass = __webpack_require__(2);
+var createClass_default = /*#__PURE__*/__webpack_require__.n(createClass);
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/defineProperty.js
-var defineProperty = __webpack_require__(1);
+var defineProperty = __webpack_require__(3);
 var defineProperty_default = /*#__PURE__*/__webpack_require__.n(defineProperty);
 
-// EXTERNAL MODULE: ./src/components/todo/_index.css
-var _index = __webpack_require__(2);
-var _index_default = /*#__PURE__*/__webpack_require__.n(_index);
-
-// EXTERNAL MODULE: ./src/components/todo-footer/index.css
-var todo_footer = __webpack_require__(3);
-
-// CONCATENATED MODULE: ./src/components/todo-footer/index.js
+// CONCATENATED MODULE: ./src/models/snake.js
 
 
 
-var todo_footer_TodoFooter = function TodoFooter(_ref, _ref2) {
-  var left = _ref.left,
-      type = _ref.type,
-      done = _ref.done;
-  var showAll = _ref2.showAll,
-      showActive = _ref2.showActive,
-      showDone = _ref2.showDone,
-      clearDone = _ref2.clearDone;
-  return Object(omis_esm["a" /* h */])("div", {
-    "class": "footer"
-  }, Object(omis_esm["a" /* h */])("div", {
-    "class": "todo-count"
-  }, Object(omis_esm["a" /* h */])("text", {
-    "class": "strong"
-  }, left + ' ', "items left"), " "), Object(omis_esm["a" /* h */])("div", {
-    "class": "filters"
-  }, Object(omis_esm["a" /* h */])("div", {
-    "class": 'ib',
-    onClick: showAll
-  }, Object(omis_esm["a" /* h */])("text", {
-    "class": type === 'all' ? 'selected' : ''
-  }, "All")), Object(omis_esm["a" /* h */])("div", {
-    "class": 'ib',
-    onClick: showActive
-  }, Object(omis_esm["a" /* h */])("text", {
-    "class": type === 'active' ? 'selected' : ''
-  }, "Active")), Object(omis_esm["a" /* h */])("div", {
-    "class": 'ib',
-    onClick: showDone
-  }, Object(omis_esm["a" /* h */])("text", {
-    "class": type === 'done' ? 'selected' : ''
-  }, "Done"))), done > 0 && Object(omis_esm["a" /* h */])("button", {
-    "class": "clear-completed",
-    onClick: clearDone
-  }, "Clear done"));
-};
+var snake_Snake =
+/*#__PURE__*/
+function () {
+  function Snake() {
+    classCallCheck_default()(this, Snake);
 
-todo_footer_TodoFooter.store = function (_ref3) {
-  var props = _ref3.props;
-  return {
-    showAll: function showAll() {
-      props.onFilter('all');
-    },
-    showActive: function showActive() {
-      props.onFilter('active');
-    },
-    showDone: function showDone() {
-      props.onFilter('done');
-    },
-    clearDone: function clearDone() {
-      props.onClear();
+    this.body = [3, 1, 2, 1, 1, 1];
+    this.dir = 'right';
+  }
+
+  createClass_default()(Snake, [{
+    key: "move",
+    value: function move(eating) {
+      var b = this.body;
+
+      if (!eating) {
+        b.pop();
+        b.pop();
+      }
+
+      switch (this.dir) {
+        case 'up':
+          b.unshift(b[0], b[1] - 1);
+          break;
+
+        case 'right':
+          b.unshift(b[0] + 1, b[1]);
+          break;
+
+        case 'down':
+          b.unshift(b[0], b[1] + 1);
+          break;
+
+        case 'left':
+          b.unshift(b[0] - 1, b[1]);
+          break;
+      }
     }
-  };
-};
+  }, {
+    key: "turnUp",
+    value: function turnUp() {
+      if (this.dir !== 'down') this.dir = 'up';
+    }
+  }, {
+    key: "turnRight",
+    value: function turnRight() {
+      if (this.dir !== 'left') this.dir = 'right';
+    }
+  }, {
+    key: "turnDown",
+    value: function turnDown() {
+      if (this.dir !== 'up') this.dir = 'down';
+    }
+  }, {
+    key: "turnLeft",
+    value: function turnLeft() {
+      if (this.dir !== 'right') this.dir = 'left';
+    }
+  }]);
 
-/* harmony default export */ var components_todo_footer = (todo_footer_TodoFooter);
-// CONCATENATED MODULE: ./src/components/todo/index.js
+  return Snake;
+}();
+
+/* harmony default export */ var snake = (snake_Snake);
+// CONCATENATED MODULE: ./src/models/game.js
 
 
 
 
+var game_Game =
+/*#__PURE__*/
+function () {
+  function Game() {
+    classCallCheck_default()(this, Game);
 
-var todo_Todo = function Todo(props, _ref) {
-  var clear = _ref.clear,
-      filter = _ref.filter,
-      textInput = _ref.textInput,
-      inputText = _ref.inputText,
-      todo = _ref.todo,
-      left = _ref.left,
-      type = _ref.type,
-      newTodo = _ref.newTodo,
-      done = _ref.done,
-      toggle = _ref.toggle,
-      deleteItem = _ref.deleteItem;
-  return Object(omis_esm["a" /* h */])("div", {
-    "class": "container"
-  }, Object(omis_esm["a" /* h */])("div", {
-    "class": "title"
-  }, "todos"), Object(omis_esm["a" /* h */])("div", {
-    "class": "form"
-  }, Object(omis_esm["a" /* h */])("input", {
-    "class": "new-todo",
-    onInput: textInput,
-    value: inputText,
-    placeholder: "下一步行动计划是？",
-    autofocus: ""
-  }), Object(omis_esm["a" /* h */])("button", {
-    "class": "add-btn",
-    onClick: newTodo
-  }, "\u786E\u5B9A")), Object(omis_esm["a" /* h */])("div", {
-    "class": "todo-list"
-  }, todo.map(function (item) {
-    return (type === 'all' || type === 'active' && !item.done || type === 'done' && item.done) && Object(omis_esm["a" /* h */])("div", {
-      "class": "todo-item".concat(item.done ? ' done' : '')
-    }, Object(omis_esm["a" /* h */])("div", {
-      "class": "toggle",
-      "data-id": item.id,
-      onClick: toggle
-    }), Object(omis_esm["a" /* h */])("text", null, item.text, " "), Object(omis_esm["a" /* h */])("div", {
-      "class": "delete",
-      "data-id": item.id,
-      onClick: deleteItem
-    }));
-  })), Object(omis_esm["a" /* h */])(components_todo_footer, {
-    onFilter: filter,
-    onClear: clear,
-    left: left,
-    done: done,
-    type: type
-  }));
-};
+    this.map = [];
+    this.size = 16;
+    this.loop = null;
+    this.interval = 500;
+    this.paused = false;
+    this._preDate = Date.now();
+    this.init();
+  }
 
-todo_Todo.store = function (_) {
-  var _ref2;
+  createClass_default()(Game, [{
+    key: "init",
+    value: function init() {
+      this.snake = new snake();
 
-  return _ref2 = {
-    todo: [{
-      text: '学习 Kbone',
-      id: 0
-    }, {
-      text: '学习 Omi',
-      id: 1
-    }],
-    id: 1,
-    inputText: '',
-    left: 2,
-    type: 'all',
-    done: 0,
-    textInput: function textInput(evt) {
-      this.inputText = evt.target.value;
-    },
-    gotoAbout: function gotoAbout() {
-      wx.navigateTo({
-        url: '../about/index'
-      });
-    },
-    toggle: function toggle(evt) {
-      for (var i = 0, len = this.todo.length; i < len; i++) {
-        var item = this.todo[i];
+      for (var i = 0; i < this.size; i++) {
+        var row = [];
 
-        if (item.id === Number(evt.target.dataset.id)) {
-          item.done = !item.done;
-          this.computeCount();
+        for (var j = 0; j < this.size; j++) {
+          row.push(0);
+        }
 
-          _.update();
+        this.map.push(row);
+      }
+    }
+  }, {
+    key: "tick",
+    value: function tick() {
+      this.makeFood();
+      var eating = this.eat();
+      this.snake.move(eating);
+      this.mark();
+    }
+  }, {
+    key: "mark",
+    value: function mark() {
+      var map = this.map;
 
-          break;
+      for (var i = 0; i < this.size; i++) {
+        for (var j = 0; j < this.size; j++) {
+          map[i][j] = 0;
         }
       }
-    },
-    computeCount: function computeCount() {
-      this.left = 0;
-      this.done = 0;
 
-      for (var i = 0, len = this.todo.length; i < len; i++) {
-        this.todo[i].done ? this.done++ : this.left++;
-      }
-    },
-    deleteItem: function deleteItem(evt) {
-      for (var i = 0, len = this.todo.length; i < len; i++) {
-        var item = this.todo[i];
-
-        if (item.id === Number(evt.target.dataset.id)) {
-          this.todo.splice(i, 1);
-          this.computeCount();
-
-          _.update();
-
-          break;
-        }
-      }
-    },
-    newTodo: function newTodo() {
-      if (this.inputText.trim() === '') {
-        wx.showToast({
-          title: '内容不能为空',
-          icon: 'none',
-          duration: 2000
-        });
-        return;
+      for (var k = 0, len = this.snake.body.length; k < len; k += 2) {
+        this.snake.body[k + 1] %= this.size;
+        this.snake.body[k] %= this.size;
+        if (this.snake.body[k + 1] < 0) this.snake.body[k + 1] += this.size;
+        if (this.snake.body[k] < 0) this.snake.body[k] += this.size;
+        map[this.snake.body[k + 1]][this.snake.body[k]] = 1;
       }
 
-      this.todo.unshift({
-        text: this.inputText,
-        id: ++this.id,
-        done: false,
-        createTime: new Date()
-      });
-      this.computeCount();
-      this.inputText = '';
+      if (this.food) {
+        map[this.food[1]][this.food[0]] = 1;
+      }
+    }
+  }, {
+    key: "start",
+    value: function start() {
+      var _this = this;
 
-      _.update();
-    },
-    installed: function installed() {},
-    filter: function filter(type) {
-      //因为是自定义事件
-      //注意这里的 this 指向，不能直接 this.type = type
-      _.store.type = type;
+      this.loop = setInterval(function () {
+        if (Date.now() - _this._preDate > _this.interval) {
+          _this._preDate = Date.now();
 
-      _.update();
-    },
-    clear: function clear(evt) {
-      //因为是自定义事件
-      //注意这里的 this 指向
-      var self = _.store;
-      wx.showModal({
-        title: '提示',
-        content: '确定清空已完成任务？',
-        success: function success(res) {
-          if (res.confirm) {
-            for (var i = 0, len = self.todo.length; i < len; i++) {
-              var item = self.todo[i];
-
-              if (item.done) {
-                self.todo.splice(i, 1);
-                len--;
-                i--;
-              }
-            }
-
-            self.done = 0;
-
-            _.update();
-          } else if (res.cancel) {
-            console.log('用户点击取消');
+          if (!_this.paused) {
+            _this.tick();
           }
         }
-      });
+      }, 16);
     }
-  }, defineProperty_default()(_ref2, "gotoAbout", function gotoAbout() {
-    wx.navigateTo({
-      url: '../about/index'
-    });
-  }), defineProperty_default()(_ref2, "clickHandle", function clickHandle() {
-    if ("undefined" != typeof wx && wx.getSystemInfoSync) {
-      wx.navigateTo({
-        url: '../log/index?id=1'
-      });
-    } else {
-      location.href = 'log.html';
+  }, {
+    key: "stop",
+    value: function stop() {
+      clearInterval(this.loop);
     }
-  }), _ref2;
-};
+  }, {
+    key: "pause",
+    value: function pause() {
+      this.paused = true;
+    }
+  }, {
+    key: "play",
+    value: function play() {
+      this.paused = false;
+    }
+  }, {
+    key: "reset",
+    value: function reset() {
+      this.paused = false;
+      this.interval = 500;
+      this.snake.body = [3, 1, 2, 1, 1, 1];
+      this.food = null;
+      this.snake.dir = 'right';
+    }
+  }, {
+    key: "toggleSpeed",
+    value: function toggleSpeed() {
+      this.interval === 500 ? this.interval = 150 : this.interval = 500;
+    }
+  }, {
+    key: "makeFood",
+    value: function makeFood() {
+      if (!this.food) {
+        this.food = [this._rd(0, this.size - 1), this._rd(0, this.size - 1)];
 
-todo_Todo.css = _index_default.a;
-/* harmony default export */ var components_todo = (todo_Todo);
+        for (var k = 0, len = this.snake.body.length; k < len; k += 2) {
+          if (this.snake.body[k + 1] === this.food[1] && this.snake.body[k] === this.food[0]) {
+            this.food = null;
+            this.makeFood();
+            break;
+          }
+        }
+      }
+    }
+  }, {
+    key: "eat",
+    value: function eat() {
+      for (var k = 0, len = this.snake.body.length; k < len; k += 2) {
+        if (this.snake.body[k + 1] === this.food[1] && this.snake.body[k] === this.food[0]) {
+          this.food = null;
+          return true;
+        }
+      }
+    }
+  }, {
+    key: "_rd",
+    value: function _rd(from, to) {
+      return from + Math.floor(Math.random() * (to + 1));
+    }
+  }]);
+
+  return Game;
+}();
+
+/* harmony default export */ var game = (game_Game);
+// CONCATENATED MODULE: ./src/stores/index.js
+
+
+
+
+var stores_game = new game();
+var stores_snake = stores_game.snake,
+    map = stores_game.map;
+stores_game.start();
+
+var stores_Store =
+/*#__PURE__*/
+function () {
+  function Store() {
+    var _this = this;
+
+    classCallCheck_default()(this, Store);
+
+    defineProperty_default()(this, "data", {
+      map: map,
+      paused: false
+    });
+
+    defineProperty_default()(this, "pauseOrPlay", function () {
+      if (stores_game.paused) {
+        stores_game.play();
+        _this.data.paused = false;
+      } else {
+        stores_game.pause();
+        _this.data.paused = true;
+      }
+    });
+  }
+
+  createClass_default()(Store, [{
+    key: "turnUp",
+    value: function turnUp() {
+      stores_snake.turnUp();
+    }
+  }, {
+    key: "turnRight",
+    value: function turnRight() {
+      stores_snake.turnRight();
+    }
+  }, {
+    key: "turnDown",
+    value: function turnDown() {
+      stores_snake.turnDown();
+    }
+  }, {
+    key: "turnLeft",
+    value: function turnLeft() {
+      stores_snake.turnLeft();
+    }
+  }, {
+    key: "reset",
+    value: function reset() {
+      stores_game.reset();
+    }
+  }, {
+    key: "toggleSpeed",
+    value: function toggleSpeed() {
+      stores_game.toggleSpeed();
+    }
+  }]);
+
+  return Store;
+}();
+
+/* harmony default export */ var stores = (new stores_Store());
+// EXTERNAL MODULE: ./src/assets/index.css
+var assets = __webpack_require__(7);
+
 // CONCATENATED MODULE: ./src/index.js
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return createApp; });
+
+
 
 
 function createApp() {
   var container = document.createElement('div');
   container.id = 'app';
   document.body.appendChild(container);
-  Object(omis_esm["b" /* render */])(Object(omis_esm["a" /* h */])(components_todo, null), '#app');
+  Object(omi_esm["c" /* render */])(Object(omi_esm["b" /* h */])("my-index", null), '#app', stores);
 }
 "undefined" != typeof wx && wx.getSystemInfoSync || createApp();
 

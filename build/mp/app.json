@@ -4,10 +4,10 @@
 		"pages/log/index"
 	],
 	"window": {
-		"navigationBarBackgroundColor": "#24292e",
+		"navigationBarBackgroundColor": "#efcc19",
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": " ",
-		"backgroundColor": "#eeeeee",
+		"backgroundColor": "#efcc19",
 		"backgroundTextStyle": "light"
 	}
 }
