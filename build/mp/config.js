@@ -24,7 +24,8 @@ module.exports = {
 		]
 	},
 	"runtime": {
-		"subpackagesMap": {}
+		"subpackagesMap": {},
+		"tabBarMap": {}
 	},
 	"pages": {
 		"index": {},
