@@ -1,8 +1,8 @@
 # omi-kbone
 
-<p align="center"><img src="https://github.com/Tencent/omi/raw/master/assets/snake.jpg" alt="omi" width="200"/></p>
-
 使用 [OMI](https://github.com/Tencent/omi) + [KBone](https://github.com/wechat-miniprogram/kbone) 多端开发(小程序和Web)的贪吃蛇游戏。
+
+<p align="center"><img src="https://github.com/Tencent/omi/raw/master/assets/snake.jpg" alt="omi" width="200"/></p>
 
 ## 一套语法多端运行
 
